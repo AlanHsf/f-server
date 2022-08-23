@@ -1,0 +1,45 @@
+logs/
+node_modules/
+npm-debug.log
+npm-debug.log.*
+nova-server.log*
+harvest.txt
+config.json
+build/
+dist/
+.tmp/
+scripts/crawler/tmp/
+.configFilePath
+package-lock.json
+public/apidoc
+public/openroute
+!public/opendoc/**/*
+public/openapi/**/*
+public/openapi/
+public/index.html
+public/temp
+release/**/sql/
+tmp/
+*.rar
+
+
+api/api-module/boya/auto_end.log
+# release/
+.cache/**/*
+iso*.log
+
+newrelic_agent.log
+
+# for novavm
+.novavm/**/*
+
+# .vscode
+
+# for download
+HWDownload/
+dist-bin
+
+# for vrpano
+public/vrpano/viewer/
+!public/vrpano/viewer/plugins
+public/vrpano/docu/

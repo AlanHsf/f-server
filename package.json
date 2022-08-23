@@ -1,0 +1,20 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "f-server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "123456"
+  ],
+  "author": "AlanH",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "expresss": "4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0"
+  }
+}

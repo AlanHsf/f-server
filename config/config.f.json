@@ -1,0 +1,104 @@
+{
+    "novamd":{
+        "databaseURI": "postgres://postgres:Post666@db.fmode.cn:5432/novamd",
+        "databaseURIOnline": "postgres://postgres:Post666@dbo.fmode.cn:5432/novamd"
+    },
+    "parse": {
+        "logLevel": "VERBOSE",
+        "appId": "nova",
+        "masterKey": "NovaTest666",
+        "databaseURI": "postgres://postgres:Post666@db.fmode.cn:5432/nova",
+        "databaseURIOnline": "postgres://postgres:Post666@dbo.fmode.cn:5432/nova",
+        "cloud": "./cloud/main.js",
+        "serverURL": "http://localhost:7337/parse",
+        "publicServerURL": "http://localhost:7337/parse",
+        "serverURLOnline": "https://server.fmode.cn/parse",
+        "port": "7337",
+        "maxUploadSize": "20mb",
+        "allowClientClassCreation": false,
+        "protectedFields": {
+            "_User": {
+                "*": [
+                    "email"
+                ]
+            }
+        },
+        "auth": {
+            "dingtalk": {
+                "module": "/opt/parse/cloud-server/cloud/oauth/dingtalk.js",
+                "appId": "dingoan2xrcjrpoq7kglxs",
+                "appSecret": "J9dJUJZtWnLsVGHqu5KICHnc3kzxj9Y5o6W5Sx7Vc3W1jEhuroGXLeunJPA3Z_-G"
+            },
+            "github": {
+                "client_id": "f5112fe065b0b4c8afa8",
+                "client_secret": "be53f01992ab1c10502650c1038fa51b4666f1aa"
+            },
+            "wechat": {
+                "appId": "wxee606073d80a2dbf",
+                "appSecret": "42ead4b7cb4d10f803af3cdca3fbf00e"
+            }
+        }
+    },
+    "qiniu": {
+        "bucket": "cloud-common",
+        "ak": "EXsA-z_n4LGmWrwC088bygcGJtAditnWQe2nH-ZE",
+        "sk": "HWTL92OL-Tup0-8ex8A9jnG3OaJzTxlF4OwiiDsX",
+        "zone": "z2",
+        "zoneUrl": "https://upload-z2.qiniup.com/",
+        "domain": "https://file-cloud.fmode.cn/"
+    },
+    "jpush": {
+        "appKey": "3a46595a29dced446f620958",
+        "masterSecret": "5c1c4ed951ece53d00b01827"
+    },
+    "mysql": {
+        "host": "127.0.0.1",
+        "user": "admin",
+        "password": "Future666",
+        "database": "future_wx"
+    },
+    "mysql_remote": {
+        "host": "sql.futurestack.cn",
+        "user": "admin",
+        "password": "Future666",
+        "database": "future_wx"
+    },
+    "mysql_shop": {
+        "host": "127.0.0.1",
+        "user": "admin",
+        "password": "Future666",
+        "database": "future_wx"
+    },
+    "mysql_pipixia": {
+        "host": "dbo.ncppx.com",
+        "user": "pipixia",
+        "password": "Go66ppxgo",
+        "database": "pipixia_test"
+    },
+    "mysql_oldpipixia": {
+        "host": "rm-bp163k8kk1d4f7rsmo.mysql.rds.aliyuncs.com",
+        "user": "pipixia",
+        "password": "Pipixia2017",
+        "database": "pipixia_test"
+    },
+    "mysql_newpipixia": {
+        "host": "dbo.ncppx.com",
+        "user": "pipixia",
+        "password": "Go66ppxgo",
+        "database": "pipixia_test"
+    },
+    "mysql_garbage": {
+        "host": "wx.think2009.com",
+        "user": "admin",
+        "password": "wcode2105",
+        "database": "dream_garbage"
+    },
+    "apiLogLevel": "SLOW",
+    "liveQuery": {
+        "classNames": [
+            "Notice",
+            "APIGAuth"
+        ]
+    }
+ 
+}

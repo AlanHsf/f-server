@@ -1,0 +1,187 @@
+
+
+
+
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="/template/rank/rank.css">
+<link rel="stylesheet" href="/template/rank/mt-tab.css">
+
+<script>
+        function changeRank(type){
+            $('#ranksAll').css("display","none");
+            $('#ranksYear').css("display","none");
+            $('#ranksWeek').css("display","none");
+            $('#ranksMonth').css("display","none");
+            if(type == "all"){$('#ranksAll').css("display","block");}
+            if(type == "year"){$('#ranksYear').css("display","block");}
+            if(type == "week"){$('#ranksWeek').css("display","block");}
+            if(type == "month"){$('#ranksMonth').css("display","block");}
+        }
+        </script>
+</head>
+    
+    <body>
+    <div class="ques-section-item">
+            <div class="ques-section-card">
+                <div class="ques-card-head ques-card-bul">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" height="30px" xml:space="preserve">
+                        <defs>
+                            <pattern id="water" width=".25" height="1.1" patternContentUnits="objectBoundingBox">
+                                <path fill="#fff" d="M0.25,1H0c0,0,0-0.659,0-0.916c0.083-0.303,0.158,0.334,0.25,0C0.25,0.327,0.25,1,0.25,1z"></path>
+                            </pattern>
+                            <g id="eff">
+                                <rect fill="url(#water)" x="-256.06" y="0" width="1200" height="120" opacity="0.3">
+                                    <animate attributeType="xml" attributeName="x" from="-300" to="0" repeatCount="indefinite" dur="10s"></animate>
+                                </rect>
+                                <rect fill="url(#water)" y="5" width="1600" height="125" opacity="0.3" x="-170.318">
+                                    <animate attributeType="xml" attributeName="x" from="-400" to="0" repeatCount="indefinite" dur="13s"></animate>
+                                </rect>
+                            </g>
+                        </defs>
+                        <use xlink:href="#eff" opacity="1" style="mix-blend-mode:normal;"></use>
+                    </svg>
+                </div>
+                <div class="ques-card-title ques-card-title-top">服务时长排行榜</div>
+
+
+                <div class="mt-tabpage" js-tab="3">
+                    <div class="mt-tabpage-title">
+                        <a href="javascript:;" onclick="changeRank('week')" class="mt-tabpage-item">周榜</a>
+                        <a href="javascript:;" onclick="changeRank('month')" class="mt-tabpage-item">月榜</a>
+                        <a href="javascript:;" onclick="changeRank('year')" class="mt-tabpage-item">年榜</a>
+                        <a href="javascript:;" onclick="changeRank('all')" class="mt-tabpage-item mt-tabpage-item-cur">总榜</a>
+                    </div>
+                    
+                <ul class="ques-card-list">
+                    <div id="ranksAll">
+                    {{#each ranksAll as |rank rankId| }}
+                    <li class="ques-card-list-{{rankId}}">
+                        <div class="ques-list-box clearfix">
+                            <div class="ques-list-head">
+                                <div class="ques-list-image">
+                                    {{#if rank.avatar}}
+                                        <img src="{{rank.avatar}}" alt="">
+                                    {{else}}
+                                        <img src="https://common.file.futurestack.cn/images/21/2019/08/P8Ozi86V6vCV96O4hvEzY6wOy9Y6w9.jpg" alt="">
+                                    {{/if}}
+                                </div>
+                            </div>
+                            <div class="ques-list-name">
+                                <div class="ques-list-name-head">  {{rank.realname}}</div>
+                                <div class="ques-list-name-text"> 服务总时长: {{rank.total}}</div>
+                            </div>
+                            <span class="ques-list-name-icon item-icon00{{rankId}}"><script>document.write({{rankId}}+1)</script></span>
+                        </div>
+                    </li>
+                    {{/each}}
+                    </div>
+                    <div id="ranksYear">
+                    {{#each ranksYear as |rank rankId| }}
+                    <li class="ques-card-list-{{rankId}}">
+                        <div class="ques-list-box clearfix">
+                            <div class="ques-list-head">
+                                <div class="ques-list-image">
+                                    {{#if rank.avatar}}
+                                        <img src="{{rank.avatar}}" alt="">
+                                    {{else}}
+                                        <img src="https://common.file.futurestack.cn/images/21/2019/08/P8Ozi86V6vCV96O4hvEzY6wOy9Y6w9.jpg" alt="">
+                                    {{/if}}
+                                </div>
+                            </div>
+                            <div class="ques-list-name">
+                                <div class="ques-list-name-head">  {{rank.realname}}</div>
+                                <div class="ques-list-name-text"> 服务总时长: {{rank.total}}</div>
+                            </div>
+                            <span class="ques-list-name-icon item-icon00{{rankId}}"><script>document.write({{rankId}}+1)</script></span>
+                        </div>
+                    </li>
+                    {{/each}}
+                    </div>
+                    <div id="ranksWeek">
+                    {{#each ranksWeek as |rank rankId| }}
+                    <li class="ques-card-list-{{rankId}}">
+                        <div class="ques-list-box clearfix">
+                            <div class="ques-list-head">
+                                <div class="ques-list-image">
+                                    {{#if rank.avatar}}
+                                        <img src="{{rank.avatar}}" alt="">
+                                    {{else}}
+                                        <img src="https://common.file.futurestack.cn/images/21/2019/08/P8Ozi86V6vCV96O4hvEzY6wOy9Y6w9.jpg" alt="">
+                                    {{/if}}
+                                </div>
+                            </div>
+                            <div class="ques-list-name">
+                                <div class="ques-list-name-head">  {{rank.realname}}</div>
+                                <div class="ques-list-name-text"> 服务总时长: {{rank.total}}</div>
+                            </div>
+                            <span class="ques-list-name-icon item-icon00{{rankId}}"><script>document.write({{rankId}}+1)</script></span>
+                        </div>
+                    </li>
+                    {{/each}}
+                    </div>
+                    <div id="ranksMonth">
+                    {{#each ranksMonth as |rank rankId| }}
+                    <li class="ques-card-list-{{rankId}}">
+                        <div class="ques-list-box clearfix">
+                            <div class="ques-list-head">
+                                <div class="ques-list-image">
+                                    {{#if rank.avatar}}
+                                        <img src="{{rank.avatar}}" alt="">
+                                    {{else}}
+                                        <img src="https://common.file.futurestack.cn/images/21/2019/08/P8Ozi86V6vCV96O4hvEzY6wOy9Y6w9.jpg" alt="">
+                                    {{/if}}
+                                </div>
+                            </div>
+                            <div class="ques-list-name">
+                                <div class="ques-list-name-head">  {{rank.realname}}</div>
+                                <div class="ques-list-name-text"> 服务总时长: {{rank.total}}</div>
+                            </div>
+                            <span class="ques-list-name-icon item-icon00{{rankId}}"><script>document.write({{rankId}}+1)</script></span>
+                        </div>
+                    </li>
+                    {{/each}}
+                    </div>
+
+                                    <li class="">
+                                            <div class="ques-list-box clearfix">
+                                                <div class="ques-list-head">
+                                                    <div class="ques-list-image">
+                                                        <img src="https://common.file.futurestack.cn/images/21/2019/08/P8Ozi86V6vCV96O4hvEzY6wOy9Y6w9.jpg" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="ques-list-name">
+                                                    <div class="ques-list-name-head">虚位以待</div>
+                                                    <div class="ques-list-name-text">没有更多，快来当志愿者，榜上有名哦~！</div>
+                                                </div>
+                                                <span class="ques-list-name-icon item-icon005">--</span>
+                                            </div>
+                                        </li>
+                </ul>
+            </div>
+        </div>
+        </div>        <!-- End of Tabs -->
+    
+        <script type="text/javascript" src="/template/jquery-3.1.1.min.js"></script>
+        <script type="text/javascript" src="/template/rank/mt-tabpage.js"></script>
+        <script type="text/javascript">
+            $(function () {
+            
+                //$('[js-tab=2]').tab({
+                //    mouse: 'over',   //切换方式：over，click
+                //    autoPlay: true,  //播放方式：false，true
+                //    curDisplay: 1,     //当前第一个打开
+                //    changeMethod: 'horizontal'  //切换选项：默认default，horizontal，vertical，opacity这4种方式
+                //});
+            
+                $('[js-tab=3]').tab({
+                    curDisplay: 2,
+                    changeMethod: 'horizontal'
+                });
+
+                changeRank('month');
+                document.title = "幸福V银行 | 服务排行";
+            });
+            </script>
+    </body>

@@ -2,12 +2,12 @@
 const fs = require("fs");     // 访问系统文件
 const path = require('path');
 const process = require('process');
-const pm2 = require('pm2')
-require(path.join(__dirname,"./api/utils/promise-prefix"));
+// const pm2 = require('pm2')
+// require(path.join(__dirname,"./api/utils/promise-prefix"));
 
 
 // 加载log4js日志插件
-require(path.join(__dirname,"./middle/log4js.middle.js"));
+// require(path.join(__dirname,"./middle/log4js.middle.js"));
 
 
 
@@ -29,7 +29,6 @@ let exphbs = require('express-handlebars'); // 模板渲染
 
 // 命令行参数处理，加载全局配置
 const argv = require('yargs').argv
-//var configFilePath = './config.json'
 var configFilePath = path.join(__dirname, 'config.json') // 配置文件地址
 var isScheduleHost = false
 if (argv.schedule) {
@@ -50,8 +49,8 @@ if (argv.local) {     // 加载配置文件
 startServer();
 
 async function startServer() {
+    console.log(argv)
     var Config, port, appId;
-    // 0. 通过安全授权配置，获取平台配置参数
     if (argv.authCode) {     // 加载安全授权配置信息
         global.isAuthCheck = true;  // 是否开启授权检测
         global.authCode = argv.authCode;
@@ -87,7 +86,7 @@ async function startServer() {
         Config = require(configFilePath);
         global.Config = Config;
     }
-
+    console.log()
     port = Config.parse.port
     global.port = port
     appId = Config.parse.appId
@@ -158,19 +157,9 @@ async function startServer() {
     let parseMiddle = require(path.join(__dirname, './middle/parse.middle.js'))
     app.use(parseMiddle)
 
-    // 加载全局服务至global中
-    //let openapi = require(path.join(__dirname, './api/api-common/open/openapi.js'))
-    //global.openapi = openapi;
-    //let ScheduleService = require(path.join(__dirname,"api/api-common/system/serv-schedule"))
-    //global.ScheduleService = ScheduleService;
+    
 
-    // 加载路由分发（公用接口）
-    let routesApiCommon = require(path.join(__dirname, './api/api-common/routes'))
-    routesApiCommon(app)
-
-    // 加载路由分发（模块接口）
-    let routesApiModule = require(path.join(__dirname, './api/api-module/routes'))
-    routesApiModule(app)
+  
 
     /***************** 加载Parse及设置配置文件 *****************/
     if (!isLocal) { // 当线上环境运营时，正常加载Parse服务
@@ -187,23 +176,17 @@ async function startServer() {
     // 统一错误处理
     app.use(function (err, req, res, next) {
         res.status(err.status || 500);
-        /**
-         * @param code number  0成功 1失败
-         */
+        
         var error = {
             code: err.code || 1,
             msg: err.msg || err.message,
             stack: err.stack,
             data: err.data,
-            // err: err,
         };
-        // console.log(err);
         res.json(error);
     });
 
-    // app.listen(port, function () {
-    //     console.log(`${appId} running on port ${port}.`);
-    // });
+  
     let httpServer = require('http').createServer(app);
     httpServer.listen(port);
     ParseServer.createLiveQueryServer(httpServer);
@@ -269,7 +252,7 @@ async function errorHandler(httpServer,signal,err){
             return
         }
     }
-// Stops the server from accepting new connections and finishes existing connections.
+
         httpServer&&httpServer.close();
         if(pm2Name || pm2Name>=0){
             console.log("restart:",pm2Name)

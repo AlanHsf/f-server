@@ -1,0 +1,45 @@
+        <script>
+            function printPage()  {  
+                document.getElementById("printImg").style.display="none";  
+                window.print();   
+                document.getElementById("printImg").style.display="";    
+                return false;  
+            }  
+        </script>
+
+        <style>
+            html{
+             width:210mm;
+             padding:20px 150px;
+             }
+             .survey-paper{
+
+             }
+        </style>
+        <style media="print">
+            @page {
+            size: auto;  /* auto is the initial value */
+            margin: 0mm; /* this affects the margin in the printer settings */
+            }
+        </style>
+<div class="survey-paper">
+    <div onclick="printPage();" id="printImg" style="position:fixed; top:30px; left:175mm; font-size: 15px;color: #2156ff;cursor: pointer;">[打印试卷]</div>
+        <h2 style="text-align:center">{{survey.title}}</h2>
+        <div style="display:flex;margin-bottom:30px;">
+            <div style="display:flex;margin: auto">姓名<div style="border-bottom:1px solid #000;width:25mm;"></div></div>
+            <div style="display:flex;margin: auto">成绩<div style="border-bottom:1px solid #000;width:25mm;"></div></div>
+        </div>
+
+{{#each surveyitems as |item|}}
+        <div style="display:flex">
+           <div style="font-size:16px">{{addOne @index}}、</div>
+           <div style="margin-bottom:10px;">
+                <div style="font-size:16px">{{item.title}}（&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp）</div>
+{{#each item.options as |option|}}
+                <div style="margin-top:10px;font-size:14px">{{engIndex @index}}.{{option.value}}</div>
+{{/each}}
+            </div>
+       </div>
+{{/each}}
+
+</div>

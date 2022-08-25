@@ -1,0 +1,7 @@
+<h2>所属试卷：{{survey.title}}</h2>
+<h2>题干：{{{surveyitem.title}}}</h2>
+<ul>
+    {{#each surveyitem.options as |option| }}
+    <li>{{engIndex @index}}、{{{option.value}}}</li>
+    {{/each}}
+</ul>
